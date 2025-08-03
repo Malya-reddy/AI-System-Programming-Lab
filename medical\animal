@@ -1,0 +1,53 @@
+% SYMPTOMS
+symptom(john, fever).
+symptom(john, cough).
+symptom(john, tiredness).
+symptom(mary, fever).
+symptom(mary, rash).
+symptom(mary, red_eyes).
+symptom(sam, sneezing).
+symptom(sam, runny_nose).
+% DISEASE RULES
+disease(Patient, flu) :-
+symptom(Patient, fever),
+symptom(Patient, cough),
+symptom(Patient, tiredness).
+disease(Patient, measles) :-
+symptom(Patient, fever),
+symptom(Patient, rash),
+symptom(Patient, red_eyes).
+disease(Patient, cold) :-
+symptom(Patient, sneezing),
+symptom(Patient, runny_nose).
+% SAMPLE QUERIES
+% ?- disease(john, Disease).
+% ?- disease(mary, Disease).
+% ?- disease(sam, Disease).
+
+% ---------- ANIMAL IDENTIFICATION EXPERT SYSTEM ----------
+% CHARACTERISTICS
+has(mammal, hair).
+has(mammal, milk).
+has(bird, feathers).
+has(bird, flies).
+has(bat, hair).
+has(bat, flies).
+
+has(penguin, feathers).
+has(penguin, swims).
+% CLASSIFICATION RULES
+animal(X, mammal) :-
+has(X, hair),
+has(X, milk).
+animal(X, bird) :-
+has(X, feathers),
+has(X, flies).
+animal(X, bat) :-
+has(X, hair),
+has(X, flies).
+animal(X, penguin) :-
+has(X, feathers),
+has(X, swims).
+% SAMPLE QUERIES
+% ?- animal(bat, Type).
+% ?- animal(penguin, Type).
